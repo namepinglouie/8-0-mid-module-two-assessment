@@ -31,7 +31,7 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
-  if(!movies.length) throw "There are no movie titles";
+  if(!movies.length) throw "There are no movies";
   return movies.map(movie => {
     return movie.title;
   })
@@ -55,7 +55,12 @@ function getAllMovieTitles(movies) {
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-function checkIfAnyMovieHasRating() {}
+function checkIfAnyMovieHasRating(movies, rating = "G") {
+  if(!movies.length) throw "There are no movies";
+  return movies.some(movie => {
+    return movie.rated === rating;
+  })
+}
 
 /**
  * findById()
